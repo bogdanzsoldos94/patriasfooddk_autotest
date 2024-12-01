@@ -9,15 +9,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
     //    private final By signInButtonBy = By.xpath("//input[@id='pass']/../../button");
-    @FindBy(xpath = "//input[@id='pass']/../../button")
+    @FindBy(xpath = "///*[@id=\"page\"]/header/div/div/div/div[2]/div[1]/a[2]")
     private WebElement signInButton;
 
     //    private final By emailBy = By.id("user");
-    @FindBy(id = "user")
+    @FindBy(id = "username")
     private WebElement emailInput;
 
     //    private final By passwordBy = By.id("pass");
-    @FindBy(id = "pass")
+    @FindBy(id = "password")
     private WebElement passwordInput;
 
     //    private final By pageIdentifier = By.xpath("//h1[contains(text(),'Sign in')]");

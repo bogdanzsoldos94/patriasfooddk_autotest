@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
         getBrowser(browser);
         getBaseURL();
 
-        navigateToURL("/?page=login");
+        navigateToURL("/contul-meu/");
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(username, password);
