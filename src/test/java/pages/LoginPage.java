@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
     //    private final By signInButtonBy = By.xpath("//input[@id='pass']/../../button");
-    @FindBy(xpath = "///*[@id=\"page\"]/header/div/div/div/div[2]/div[1]/a[2]")
+    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[1]/form/p[1]/label")
     private WebElement signInButton;
 
     //    private final By emailBy = By.id("user");
@@ -55,7 +55,7 @@ public class LoginPage extends BasePage {
     }
 
     public void submit() {
-       wait.until(ExpectedConditions.elementToBeClickable(signInButton));
+        wait.until(ExpectedConditions.elementToBeClickable(signInButton));
         System.out.println("Click sign in button");
         signInButton.click();
     }
