@@ -49,7 +49,6 @@ public class BaseTest {
     }
 
 
-
     private void closeBrowserAtEnd() {
         if (driver != null) {
             System.out.println("Close browser at the end of test");
@@ -60,10 +59,12 @@ public class BaseTest {
 
 
 
-     @AfterTest
+    /*   @AfterTest
     public void cleanUp() {
         closeBrowserAtEnd();
     }
+
+     */
 
      @AfterMethod
     public void cleanUpAfterMethod() {

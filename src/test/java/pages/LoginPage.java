@@ -75,9 +75,6 @@ public class LoginPage extends BasePage {
 
 
 
-
-
-
     // Verify if login failed by checking the error message text
     public boolean verifyLoginFailed(String errorMessage) {
         waitUntilElementVisible(errorMessageElement);  // Wait for the error message to be visible
