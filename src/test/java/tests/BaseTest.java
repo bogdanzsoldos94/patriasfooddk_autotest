@@ -39,10 +39,16 @@ public class BaseTest {
         basePage = new BasePage(driver);
     }
 
+
+
+
+
     public void setUp() {
         getBaseURL();
         getBrowser();
     }
+
+
 
     private void closeBrowserAtEnd() {
         if (driver != null) {
@@ -51,15 +57,20 @@ public class BaseTest {
         }
     }
 
-    @AfterTest
+
+
+
+     @AfterTest
     public void cleanUp() {
         closeBrowserAtEnd();
     }
 
-    @AfterMethod
+     @AfterMethod
     public void cleanUpAfterMethod() {
         closeBrowserAtEnd();
     }
+
+
 
     public void getBaseURL() {
         getBaseURL(ConstantUtils.DEFAULT_CONFIG_FILE);
