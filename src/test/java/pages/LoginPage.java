@@ -59,6 +59,7 @@ public class LoginPage extends BasePage {
         submit();  // Submit the form
     }
 
+
     // Enter username or email into the input field
     public void enterUsernameOrEmail(String usernameOrEmail) {
         waitUntilElementVisible(emailInput);  // Wait until the username/email field is visible
@@ -77,7 +78,7 @@ public class LoginPage extends BasePage {
 
     // Submit the login form
     public void submit() {
-        waitUntilElementClickable((By) submitButton);  // Wait until the submit button is clickable
+        waitUntilElementClickable((WebElement) submitButton);  // Wait until the submit button is clickable
         System.out.println("Clicking the submit button");
         submitButton.click();  // Click the submit button
     }

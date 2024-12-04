@@ -22,6 +22,11 @@ public class ProductPage {
         driver.get(productUrl);
     }
 
+    public String getSuccessMessage() {
+        WebElement successMessageElement = driver.findElement(By.cssSelector("selector-for-success-message")); // Replace with the actual selector
+        return successMessageElement.getText();
+    }
+
     // Add a product to the basket
     public void addToBasket() {
         try {

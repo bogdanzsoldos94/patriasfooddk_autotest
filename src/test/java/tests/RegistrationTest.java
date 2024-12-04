@@ -74,7 +74,7 @@ public class RegistrationTest extends BaseTest {
 
     @Test
     public void testRegistration() {
-        navigateToURL("/cont-nou/");
+        navigateToURL("/contul-meu/");
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.register("test@example.com");
         Assert.assertTrue(registrationPage.successfulLandingURL());

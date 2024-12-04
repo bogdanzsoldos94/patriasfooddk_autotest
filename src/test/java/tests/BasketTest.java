@@ -84,16 +84,30 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CartPage;
 import pages.ProductPage;
 
 public class BasketTest extends BaseTest {
 
     @Test
     public void testAddToBasket() {
-        navigateToURL("https://www.patriasfood.dk/magazin/");
+        navigateToURL("magazin/");
         ProductPage productPage = new ProductPage(driver);
         productPage.addToBasket();
-        // Add your assertions here to verify that the item was added to the basket
-        Assert.assertTrue(true); // Replace with actual assertion
+
+        // Create an instance of CartPage to check the cart
+        CartPage cartPage = new CartPage(driver);
+
+        // Check that the cart is not empty
+        int itemCount = cartPage.getItemCount();
+        Assert.assertTrue(itemCount > 0, "The cart should not be empty after adding a product.");
+
+        // Check that the cart count reflects the added product
+        Assert.assertEquals(itemCount, 1, "The cart should contain exactly one item.");
+
+        // Check for a success message
+        String successMessage = productPage.getSuccessMessage();
+        Assert.assertEquals(successMessage, "Product successfully added to your basket.",
+                "The success message should confirm the product was added.");
     }
 }
