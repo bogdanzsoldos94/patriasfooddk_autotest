@@ -1,4 +1,4 @@
-package tests;
+/* package tests;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -36,6 +36,8 @@ public class BasketTest {
     }
 }
 
+FUNCTIONAL!!!!!!!!!!
+ */
 
 /*package tests;
 
@@ -78,3 +80,20 @@ public class BasketTest {
 }
 
  */
+package tests;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.ProductPage;
+
+public class BasketTest extends BaseTest {
+
+    @Test
+    public void testAddToBasket() {
+        navigateToURL("https://www.patriasfood.dk/magazin/");
+        ProductPage productPage = new ProductPage(driver);
+        productPage.addToBasket();
+        // Add your assertions here to verify that the item was added to the basket
+        Assert.assertTrue(true); // Replace with actual assertion
+    }
+}

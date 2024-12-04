@@ -1,0 +1,6 @@
+lastname,firstname,phone,email,address,city,county,password,confirmPassword,registerError
+testez,,Please enter a a text followed by '@'. '@email.com' is incomplete.
+testez@,,'
+Popescu,,'
+testez.com,,Please include an '@' in the email address.
+testez@com,,Please include an '.' in the email address.
