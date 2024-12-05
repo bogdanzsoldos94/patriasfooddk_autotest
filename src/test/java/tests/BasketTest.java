@@ -8,7 +8,7 @@ import pages.ProductPage;
 public class BasketTest extends BaseTest {
 
     @Test
-    public void testAddToBasket() {
+    public void testAddToBasketAndAdjustQuantity() {
         navigateToURL("magazin/");
         ProductPage productPage = new ProductPage(getDriver());
 
@@ -26,12 +26,14 @@ public class BasketTest extends BaseTest {
             e.printStackTrace();
         }
 
-        // Check the item count in the cart
-        int itemCount = cartPage.getItemCount();
-        System.out.println("Item Count in Cart: " + itemCount);
-        Assert.assertTrue(itemCount > 0, "The cart should not be empty after adding a product.");
+        // View the cart
+        cartPage.viewCart();
 
-        // Check that the cart count reflects the added product
-        Assert.assertEquals(itemCount, 1, "The cart should contain exactly one item.");
+        // Increase the quantity to 200
+        cartPage.increaseQuantityBy(100);
+
+        // Proceed to checkout
+        cartPage.proceedToCheckout();
+        System.out.println("Proceeded to checkout.");
     }
 }

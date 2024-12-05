@@ -5,24 +5,19 @@ import jakarta.xml.bind.annotation.XmlElement;
 public class RegistrationDetailsModel {
     private String email;
 
-
-    public RegistrationDetailsModel(String lastname) {
-        this.email = email;
-
+    public RegistrationDetailsModel() {
     }
 
-    @XmlElement
+    public RegistrationDetailsModel(String email) {
+        this.email = email;
+    }
+
+    @XmlElement // Only apply the annotation here
     public String getEmail() {
         return email;
     }
 
-
-
-    @XmlElement
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email; // No annotation needed here
     }
-
-
-    }
-
+}

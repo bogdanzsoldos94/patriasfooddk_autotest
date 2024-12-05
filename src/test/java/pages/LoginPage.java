@@ -24,8 +24,6 @@ public class LoginPage extends BasePage {
     @FindBy(css= "#post-23 > div > div > div.woocommerce-notices-wrapper > ul > li")
     private WebElement errorMessageElement;
 
-    Actions action;
-
     public LoginPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -69,6 +67,11 @@ public class LoginPage extends BasePage {
         WebElement welcomeMessage = waitUntilElementVisible(By.cssSelector(css));
         System.out.println("Welcome message displayed: " + welcomeMessage.getText());
         return welcomeMessage.isDisplayed();
+    }
+
+    public String getErrorMessage() {
+        waitUntilElementVisible(errorMessageElement);
+        return errorMessageElement.getText();
     }
 
 

@@ -8,39 +8,35 @@ public class RegistrationModel {
     private RegistrationDetailsModel registrationDetailsModel;
     private String registerError;
 
-
     public RegistrationModel() {
     }
 
     public RegistrationModel(String email) {
         this.registrationDetailsModel = new RegistrationDetailsModel(email);
-        this.registerError = registerError;
     }
 
+    @XmlElement // Only apply the annotation here
     public RegistrationDetailsModel getRegistrationDetailsModel() {
         return registrationDetailsModel;
     }
 
-    @XmlElement
     public void setRegistrationDetailsModel(RegistrationDetailsModel registrationDetailsModel) {
-        this.registrationDetailsModel = registrationDetailsModel;
+        this.registrationDetailsModel = registrationDetailsModel; // No annotation needed here
     }
 
+    @XmlElement // Only apply the annotation here
     public String getRegisterError() {
         return registerError;
     }
 
-    @XmlElement
     public void setRegisterError(String registerError) {
-        this.registerError = registerError;
+        this.registerError = registerError; // No annotation needed here
     }
 
     @Override
     public String toString() {
         return "RegistrationModel: {" +
-                "registrationDetailsModel: \n \t lastname: " + registrationDetailsModel.getEmail() +
+                "registrationDetailsModel: \n \t email: " + registrationDetailsModel.getEmail() +
                 "\n }, \n registerError: " + registerError + "\n}";
-
     }
 }
-

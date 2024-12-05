@@ -26,9 +26,6 @@ public class BrowserUtils {
 
     public static WebDriver getDriver(String browser, String environment) {
         switch (browser.toLowerCase()) {
-            case "firefox":
-                // Firefox setup
-                return new FirefoxDriver();
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--start-maximized");
