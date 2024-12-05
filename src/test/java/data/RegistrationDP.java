@@ -24,12 +24,12 @@ public class RegistrationDP {
     @DataProvider(name = "registrationValidDataProvider")
     public Iterator<Object[]> registrationValidDataProvider() throws JAXBException {
         Collection<Object[]> dp = new ArrayList<>();
-//        here we will map XML to loginModel
+
         File xmlFile = new File("src/test/resources/testData/registrationValidTestData.xml");
 
         RegistrationModel registrationModel = (RegistrationModel) unMarshalObjectModel(xmlFile, RegistrationModel.class);
 
-//        Adding to data provider
+
         dp.add(new Object[]{registrationModel});
         return dp.iterator();
     }
@@ -37,7 +37,7 @@ public class RegistrationDP {
     private Object unMarshalObjectModel(File f, Class<?>... classesToBeBound) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(classesToBeBound);
 
-//        Loading XML and map based on tags added on LoginModel and AccountModel
+
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         return unmarshaller.unmarshal(f);
     }

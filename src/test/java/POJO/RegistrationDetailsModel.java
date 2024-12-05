@@ -7,10 +7,10 @@ public class RegistrationDetailsModel {
 
 
     public RegistrationDetailsModel(String lastname) {
-
         this.email = email;
 
     }
+
     @XmlElement
     public String getEmail() {
         return email;

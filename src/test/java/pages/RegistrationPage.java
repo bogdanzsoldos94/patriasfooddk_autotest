@@ -6,9 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.Collections; // Ensure this import is present
-import java.util.List; // Ensure this import is present
-import java.util.Objects; // Ensure this import is present
 
 public class RegistrationPage extends BasePage {
 
@@ -35,7 +32,7 @@ public class RegistrationPage extends BasePage {
     public void register(String email) {
         // Locate the email input field and submit the form
         emailInput.sendKeys(email);
-        registrationButton.click(); // Simulate registration
+        registrationButton.click();
     }
 
     public void enterEmail(String email) {
@@ -51,38 +48,12 @@ public class RegistrationPage extends BasePage {
         registrationButton.click();
     }
 
-    // Validate that an element has the required attribute
-    private boolean verifyElementIsRequired(WebElement element) {
-        String accessibleName = element.getAttribute("name"); // Assuming 'name' for accessibility
-        String requiredAttribute = element.getAttribute("required");
 
-        System.out.println("Field: " + accessibleName + " => required attribute value: " + requiredAttribute);
-
-        return "true".equals(requiredAttribute); // Checking if the required attribute is "true"
-    }
-
-    // Check if all required fields are present
-    public boolean verifyElementsAreRequired() {
-        List<WebElement> requiredFields = Collections.singletonList(emailInput); // Add other required fields if necessary
-        for (WebElement element : requiredFields) {
-            if (!verifyElementIsRequired(element)) {
-                return false; // Return false if any required field is not correctly set
-            }
-        }
-        return true; // All required fields are valid
-    }
 
     public boolean successfulLandingURL() {
         String registrationSuccessfulURL = "https://www.patriasfood.dk/contul-meu/";
         return registrationSuccessfulURL.equals(driver.getCurrentUrl());
     }
 
-    public boolean verifyRegistrationSuccessful(String firstname) {
-        String xpath = "//p[contains(text(), 'Esti logat ca " + firstname + "')]"; // Removed lastname
-        WebElement welcomeMessage = waitUntilElementVisible(By.xpath(xpath));
-        System.out.println("Welcome message is displayed: " + welcomeMessage.getText());
-        return welcomeMessage.isDisplayed();
-    }
 
-    // Other existing methods...
 }
