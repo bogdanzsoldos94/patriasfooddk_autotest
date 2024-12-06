@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>patriasfooddk_auto_tests</artifactId>
+  <artifactId>patriasfooddk_autotest</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>
@@ -15,7 +15,6 @@
     <selenium.version>4.26.0</selenium.version>
     <testng.version>7.10.2</testng.version>
     <opencsv.version>5.9</opencsv.version>
-    <mysql.version>8.0.33</mysql.version>
     <jackson.version>2.17.2</jackson.version>
     <commons.io.version>2.17.0</commons.io.version>
     <xmlSuite>runSuites/regressionRun.xml</xmlSuite>
@@ -42,11 +41,13 @@
       <version>${opencsv.version}</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>${mysql.version}</version>
+      <version>8.0.33</version>
     </dependency>
+
 
     <dependency>
       <groupId>jakarta.xml.bind</groupId>
@@ -66,11 +67,11 @@
       <version>${commons.io.version}</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
     <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter</artifactId>
-          <version>RELEASE</version>
-          <scope>test</scope>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.11.3</version> <!-- Use the latest stable version -->
     </dependency>
 
     <dependency>
@@ -97,13 +98,14 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.1</version>
+        <version>2.22.2</version>
         <configuration>
-          <suiteXmlFiles>
-            <suiteXmlFile>${xmlSuite}</suiteXmlFile>
-          </suiteXmlFiles>
-          <testFailureIgnore>true</testFailureIgnore>
+          <includes>
+            <include>**/E2E*.java</include>
+            <include>**/*Test.java</include>
+          </includes>
         </configuration>
       </plugin>
       <plugin>
