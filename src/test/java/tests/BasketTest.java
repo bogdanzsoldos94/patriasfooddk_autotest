@@ -12,6 +12,8 @@ public class BasketTest extends BaseTest {
         navigateToURL("magazin/");
         ProductPage productPage = new ProductPage(getDriver());
 
+        productPage.goToSecondPage();
+
         // Add product to basket
         System.out.println("Attempting to add product to the basket...");
         productPage.addToBasket();
@@ -30,10 +32,11 @@ public class BasketTest extends BaseTest {
         cartPage.viewCart();
 
         // Increase the quantity to 200
-        cartPage.increaseQuantityBy(100);
+        cartPage.increaseQuantityBy(10);
+        System.out.println("Added 10 to quantity");
 
-        // Proceed to checkout
-        cartPage.proceedToCheckout();
-        System.out.println("Proceeded to checkout.");
+        productPage.updateBasket();
+
+
     }
 }

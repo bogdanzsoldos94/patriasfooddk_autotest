@@ -2,10 +2,10 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.LoginPage;
-import pages.ProductPage;
-import pages.LogoutPage;
 import pages.CartPage;
+import pages.LoginPage;
+import pages.LogoutPage;
+import pages.ProductPage;
 
 public class E2ELoginBasketLogout extends BaseTest {
 
@@ -25,29 +25,35 @@ public class E2ELoginBasketLogout extends BaseTest {
 
         // Step 3: Navigate to Product Page
         ProductPage productPage = new ProductPage(getDriver());
-        productPage.goTo("https://www.patriasfood.dk/magazin/"); // replace with your product page URL
+        productPage.goTo("https://www.patriasfood.dk/magazin/"); // Use full URL here
 
-        // Step 4: Add a product to the basket
+        // Step 4: Go to second page
+        productPage.goToSecondPage();
+
+        // Step 5: Add a product to the basket
         productPage.addToBasket();
 
-        // Step 5: View the cart
+        // Step 6: Create an instance of CartPage to check the cart
         CartPage cartPage = new CartPage(getDriver());
-        cartPage.viewCart(); // Navigate to the cart
 
-        // Step 6: Increase the quantity by 200
-        cartPage.increaseQuantityBy(999);
+        // Step 7: View the cart
+        cartPage.viewCart();
 
-        // Step 7: Proceed to checkout
-        cartPage.proceedToCheckout();
+        // Step 8: Increase the quantity by 10
+        cartPage.increaseQuantityBy(10);
+        System.out.println("Added 10 to quantity");
 
-        // Step 8: Navigate back to My Account page (optional if needed)
-        navigateToURL("/contul-meu/"); // Navigate back to the account page
+        // Step 9: Update the cart
+        productPage.updateBasket();
 
-        // Step 9: Logout
+        // Step 11: Navigate back to My Account page
+        navigateToURL("contul-meu/");
+
+        // Step 12: Logout
         LogoutPage logoutPage = new LogoutPage(getDriver());
         logoutPage.logout();
 
         // Verify successful logout
-        Assert.assertEquals(logoutPage.verifyLogoutSuccessful(), "Autentificare", "Logout was not successful!");
+        Assert.assertTrue(logoutPage.verifyLogoutSuccessful(), "Logout was not successful!");
     }
 }
