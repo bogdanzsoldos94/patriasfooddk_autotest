@@ -42,21 +42,21 @@ public class E2EProductSelectionTest extends BaseTest {
         driver.findElement(dropdownOption).click();
 
         // Selector for the specific product
-        By productSelector = By.cssSelector("li.col-md-4.first.post-2212"); // Replace with the actual selector for the product
+        By productSelector = By.cssSelector("li.col-md-4.first.post-2212");
         try {
             // Wait until the product is visible
             waitUntilElementVisible(productSelector);
-            driver.findElement(productSelector).click(); // Click on the first product to view details
+            driver.findElement(productSelector).click();
         } catch (Exception e) {
             System.out.println("Could not find the product element: " + e.getMessage());
         }
 
         // Selector for the basket button
-        By basketButtonSelector = By.cssSelector("a.added_to_cart.wc-forward"); // Replace with the actual selector for the basket button
+        By basketButtonSelector = By.cssSelector("a.added_to_cart.wc-forward");
         try {
             // Wait until the basket button is clickable
             waitUntilElementClickable(basketButtonSelector);
-            driver.findElement(basketButtonSelector).click(); // Click to view the basket
+            driver.findElement(basketButtonSelector).click();
         } catch (Exception e) {
             System.out.println("Could not find the basket button: " + e.getMessage());
         }

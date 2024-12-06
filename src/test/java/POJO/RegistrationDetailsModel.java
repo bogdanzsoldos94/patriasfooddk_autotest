@@ -18,6 +18,6 @@ public class RegistrationDetailsModel {
     }
 
     public void setEmail(String email) {
-        this.email = email; // No annotation needed here
+        this.email = email;
     }
 }

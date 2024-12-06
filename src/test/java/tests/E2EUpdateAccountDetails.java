@@ -23,7 +23,7 @@ public class E2EUpdateAccountDetails extends BaseTest {
 
         // Step 3: Navigate to Account Details Page
         AccountDetails accountDetailsPage = new AccountDetails(getDriver());
-        accountDetailsPage.navigateToAccountDetails(); // Navigate to Account Details
+        accountDetailsPage.navigateToAccountDetails();
 
         // Step 4: Update account details
         accountDetailsPage.updateAccountDetails("John", "Doe", "tradeandfacts");

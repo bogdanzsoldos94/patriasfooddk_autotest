@@ -25,7 +25,7 @@ public class E2ELoginBasketLogout extends BaseTest {
 
         // Step 3: Navigate to Product Page
         ProductPage productPage = new ProductPage(getDriver());
-        productPage.goTo("https://www.patriasfood.dk/magazin/"); // Use full URL here
+        productPage.goTo("https://www.patriasfood.dk/magazin/");
 
         // Step 4: Go to second page
         productPage.goToSecondPage();
@@ -46,10 +46,10 @@ public class E2ELoginBasketLogout extends BaseTest {
         // Step 9: Update the cart
         productPage.updateBasket();
 
-        // Step 11: Navigate back to My Account page
+        // Step 10: Navigate back to My Account page
         navigateToURL("contul-meu/");
 
-        // Step 12: Logout
+        // Step 11: Logout
         LogoutPage logoutPage = new LogoutPage(getDriver());
         logoutPage.logout();
 

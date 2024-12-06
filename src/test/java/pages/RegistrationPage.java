@@ -87,16 +87,16 @@ public class RegistrationPage extends BasePage {
     }
 
     public void enterEmail(String email) {
-        waitUntilElementVisible(emailInput); // Wait until the email input is visible
+        waitUntilElementVisible(emailInput);
         System.out.println("Enter email: " + email);
-        emailInput.clear(); // Clear any pre-filled data
-        emailInput.sendKeys(email); // Enter the email
+        emailInput.clear();
+        emailInput.sendKeys(email);
     }
 
     public void submit() {
-        waitUntilElementVisible(registrationButton); // Wait until the registration button is visible
+        waitUntilElementVisible(registrationButton);
         System.out.println("Clicking the registration button");
-        registrationButton.click(); // Click the button to submit
+        registrationButton.click();
     }
 
     public boolean successfulLandingURL() {

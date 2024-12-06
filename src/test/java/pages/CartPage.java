@@ -120,13 +120,13 @@ public class CartPage extends BasePage {
     }
 
     public void viewCart() {
-        waitUntilElementVisible(basketButton); // Ensure the button is visible
+        waitUntilElementVisible(basketButton);
         if (basketButton.isDisplayed() && basketButton.isEnabled()) {
             System.out.println("Clicking on the basket button to view the cart...");
             basketButton.click(); // Click the basket button
         } else {
             System.out.println("Basket button not interactable, trying to click with JavaScript...");
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", basketButton); // Use JavaScript to click
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", basketButton);
         }
     }
 
@@ -137,13 +137,13 @@ public class CartPage extends BasePage {
             proceedToCheckoutButton.click(); // Click the button
         } catch (TimeoutException e) {
             System.out.println("Timeout while waiting for proceed to checkout button to be clickable.");
-            throw e; // Rethrow for further handling
+            throw e;
         }
     }
 
     public void increaseQuantityBy(int amount) {
         for (int i = 0; i < amount; i++) {
-            increaseQuantityButton.click(); // Click the increase button
+            increaseQuantityButton.click();
             System.out.println("Increasing quantity, current attempt: " + (i + 1));
         }
     }

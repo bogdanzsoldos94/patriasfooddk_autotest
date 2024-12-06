@@ -21,7 +21,7 @@ public class RegistrationModel {
     }
 
     public void setRegistrationDetailsModel(RegistrationDetailsModel registrationDetailsModel) {
-        this.registrationDetailsModel = registrationDetailsModel; // No annotation needed here
+        this.registrationDetailsModel = registrationDetailsModel;
     }
 
     @XmlElement // Only apply the annotation here
@@ -30,7 +30,7 @@ public class RegistrationModel {
     }
 
     public void setRegisterError(String registerError) {
-        this.registerError = registerError; // No annotation needed here
+        this.registerError = registerError;
     }
 
     @Override

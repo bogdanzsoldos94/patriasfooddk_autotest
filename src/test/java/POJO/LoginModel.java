@@ -11,10 +11,6 @@ public class LoginModel {
     public LoginModel() {
     }
 
-    public LoginModel(String username, String password, String loginErr) {
-        this.account = new AccountModel(username, password);
-        this.loginErr = loginErr;
-    }
 
     public AccountModel getAccount() {
         return account;
@@ -25,14 +21,6 @@ public class LoginModel {
         this.account = account;
     }
 
-    public String getLoginErr() {
-        return loginErr;
-    }
-
-    @XmlElement
-    public void setLoginErr(String loginErr) {
-        this.loginErr = loginErr;
-    }
 
     @Override
     public String toString() {

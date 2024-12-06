@@ -12,20 +12,31 @@ import java.time.Duration;
 
 public class AccountDetails extends BasePage {
 
-    @FindBy(css= "#account_first_name") // Update with the actual ID for First Name input
+    @FindBy(css= "#account_first_name") // First Name input
     private WebElement firstNameInput;
 
-    @FindBy(css= "#account_last_name") // Update with the actual ID for Last Name input
+    @FindBy(css= "#account_last_name") // Last Name input
     private WebElement lastNameInput;
 
-    @FindBy(css = "#post-23 > div > div > div > form > p:nth-child(9) > button") // Update with the actual ID for Display Name input
+    @FindBy(css = "#post-23 > div > div > div > form > p:nth-child(9) > button") // Display Name button
     private WebElement displayNameInput;
 
-    @FindBy(css = "#post-23 > div > div > div > form > p:nth-child(9) > button") // Update with the actual XPath for the Save Changes button
+    @FindBy(css = "#post-23 > div > div > div > form > p:nth-child(9) > button") // Save Changes button
     private WebElement saveChangesButton;
 
-    @FindBy(css = "#post-23 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--edit-account > a") // Update with correct selector for Account Details link
+    @FindBy(css = "#post-23 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--edit-account > a") // Account Details Link
     private WebElement accountDetailsLink;
+
+    // Password fields
+    @FindBy(css = "#password_current") // Actual Password input
+    private WebElement actualPasswordField;
+
+    @FindBy(css= "#password_1") // New Password input
+    private WebElement newPasswordField;
+
+    @FindBy(css= "#password_2") // Confirm New Password input
+    private WebElement confirmNewPasswordField;
+
 
     public AccountDetails(WebDriver driver) {
         super(driver);
@@ -34,34 +45,52 @@ public class AccountDetails extends BasePage {
 
     public void navigateToAccountDetails() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(accountDetailsLink)).click(); // Click the Account Details link
+        wait.until(ExpectedConditions.elementToBeClickable(accountDetailsLink)).click();
     }
 
     public void updateAccountDetails(String firstName, String lastName, String displayName) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        // Wait for the first name input to be visible and clear it using JavaScript
         wait.until(ExpectedConditions.visibilityOf(firstNameInput));
         clearInputUsingJavaScript(firstNameInput);
         firstNameInput.sendKeys(firstName);
 
-        // Wait for the last name input to be visible and clear it using JavaScript
         wait.until(ExpectedConditions.visibilityOf(lastNameInput));
         clearInputUsingJavaScript(lastNameInput);
         lastNameInput.sendKeys(lastName);
 
-        // Wait for the display name input to be visible and clear it using JavaScript
         wait.until(ExpectedConditions.visibilityOf(displayNameInput));
         clearInputUsingJavaScript(displayNameInput);
         displayNameInput.sendKeys(displayName);
 
-        // Wait for the save changes button to be clickable and click it
         wait.until(ExpectedConditions.elementToBeClickable(saveChangesButton));
         saveChangesButton.click();
     }
 
+    public void changePassword(String actualPassword, String newPassword, String confirmNewPassword) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Wait and fill Actual Password
+        wait.until(ExpectedConditions.visibilityOf(actualPasswordField));
+        actualPasswordField.clear();
+        actualPasswordField.sendKeys(actualPassword);
+
+        // Wait and fill New Password
+        wait.until(ExpectedConditions.visibilityOf(newPasswordField));
+        newPasswordField.clear();
+        newPasswordField.sendKeys(newPassword);
+
+        // Wait and fill Confirm New Password
+        wait.until(ExpectedConditions.visibilityOf(confirmNewPasswordField));
+        confirmNewPasswordField.clear();
+        confirmNewPasswordField.sendKeys(confirmNewPassword);
+
+
+
+    }
+
     private void clearInputUsingJavaScript(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].value = '';", element); // Clear the input field using JavaScript
+        js.executeScript("arguments[0].value = '';", element);
     }
 }

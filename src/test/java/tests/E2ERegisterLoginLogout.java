@@ -7,7 +7,7 @@ import data.RegistrationDP;
 import pages.LoginPage;
 import pages.RegistrationPage;
 
-public class E2ELoginLogout extends BaseTest {
+public class E2ERegisterLoginLogout extends BaseTest {
 
     @Test(dataProvider = "registrationValidDataProvider", dataProviderClass = RegistrationDP.class)
     public void testUserRegistrationAndLogin(RegistrationModel registrationModel) {
@@ -20,8 +20,8 @@ public class E2ELoginLogout extends BaseTest {
 
         // Step 2: Fill in the registration form
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
-        registrationPage.enterEmail(email); // Pass the email to the method
-        registrationPage.submit(); // Submit the registration form
+        registrationPage.enterEmail(email);
+        registrationPage.submit();
 
         // Step 3: Verify registration success
         Assert.assertTrue(registrationPage.successfulLandingURL(), "User should be redirected to the account page.");
