@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import POJO.RegistrationModel;
 import data.RegistrationDP;
 import pages.LoginPage;
+import pages.LogoutPage;
 import pages.RegistrationPage;
 
 public class E2ERegisterLoginLogout extends BaseTest {
@@ -35,5 +36,10 @@ public class E2ERegisterLoginLogout extends BaseTest {
 
         // Step 6: Verify login success
         Assert.assertTrue(loginPage.verifyLoginSuccessful(email), "User should be logged in successfully.");
+
+        // Step 7: Logout
+        LogoutPage logoutPage = new LogoutPage(getDriver());
+        logoutPage.logout();
+
     }
 }

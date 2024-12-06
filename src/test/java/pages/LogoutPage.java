@@ -16,7 +16,6 @@ public class LogoutPage extends BasePage {
     }
 
     public void logout() {
-        // Perform your logout logic
         waitUntilElementClickable(logoutButton);
         logoutButton.click();
     }

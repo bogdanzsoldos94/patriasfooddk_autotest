@@ -61,7 +61,6 @@ public class RegistrationPage extends BasePage {
  */
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -77,11 +76,10 @@ public class RegistrationPage extends BasePage {
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this); // Ensure elements are initialized
+        PageFactory.initElements(driver, this);
     }
 
     public void register(String email) {
-        // Locate the email input field and submit the form
         emailInput.sendKeys(email);
         registrationButton.click();
     }

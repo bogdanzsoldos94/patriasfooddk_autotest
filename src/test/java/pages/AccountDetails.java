@@ -12,29 +12,29 @@ import java.time.Duration;
 
 public class AccountDetails extends BasePage {
 
-    @FindBy(css= "#account_first_name") // First Name input
+    @FindBy(css= "#account_first_name")
     private WebElement firstNameInput;
 
-    @FindBy(css= "#account_last_name") // Last Name input
+    @FindBy(css= "#account_last_name")
     private WebElement lastNameInput;
 
-    @FindBy(css = "#post-23 > div > div > div > form > p:nth-child(9) > button") // Display Name button
+    @FindBy(css = "#post-23 > div > div > div > form > p:nth-child(9) > button")
     private WebElement displayNameInput;
 
-    @FindBy(css = "#post-23 > div > div > div > form > p:nth-child(9) > button") // Save Changes button
+    @FindBy(css = "#post-23 > div > div > div > form > p:nth-child(9) > button")
     private WebElement saveChangesButton;
 
-    @FindBy(css = "#post-23 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--edit-account > a") // Account Details Link
+    @FindBy(css = "#post-23 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--edit-account > a")
     private WebElement accountDetailsLink;
 
     // Password fields
-    @FindBy(css = "#password_current") // Actual Password input
+    @FindBy(css = "#password_current")
     private WebElement actualPasswordField;
 
-    @FindBy(css= "#password_1") // New Password input
+    @FindBy(css= "#password_1")
     private WebElement newPasswordField;
 
-    @FindBy(css= "#password_2") // Confirm New Password input
+    @FindBy(css= "#password_2")
     private WebElement confirmNewPasswordField;
 
 

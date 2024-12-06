@@ -18,10 +18,8 @@ public class BasketTest extends BaseTest {
         System.out.println("Attempting to add product to the basket...");
         productPage.addToBasket();
 
-        // Create an instance of CartPage to check the cart
         CartPage cartPage = new CartPage(getDriver());
 
-        // Wait for a moment if necessary to ensure the cart updates
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
