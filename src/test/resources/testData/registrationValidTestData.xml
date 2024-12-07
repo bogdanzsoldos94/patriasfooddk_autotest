@@ -2,5 +2,5 @@
     <registrationDetailsModel>
         <email>tradeandfacts@gmail.com</email>
     </registrationDetailsModel>
-    <registerError></registerError>
+    <registerError>You should enter a valid email adress.</registerError>
 </registrationModel>

@@ -1,16 +1,25 @@
 [
   {
       "account": {
-        "username": "test",
-        "password": "test"
+        "username": "tradeabdfactsssss",
+        "password": "testez1122"
       },
       "loginErr": "Invalid username or password!"
     },
+
   {
     "account": {
-      "username": "dingo",
-      "password": "dingopassword"
+      "username": "tradeabdfacts",
+      "password": "testez11222222222"
     },
-    "loginErr": ""
+    "loginErr": "Invalid username or password!"
+  },
+
+  {
+    "account": {
+      "username": "tradeabdfacts",
+      "password": "."
+    },
+    "loginErr": "Invalid username or password!"
   }
 ]
